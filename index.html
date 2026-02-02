@@ -1,122 +1,644 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Breaking Video Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sri Lanka Breaking News, Latest Gossips, Political Leaks & Exclusive Videos. Get all updates from Colombo, Kandy, Galle & across Sri Lanka">
+  <meta name="keywords" content="Sri Lanka news, Colombo gossip, Political leaks Sri Lanka, Sinhala news, Lanka updates, Breaking news Sri Lanka">
+  <title>Lanka Leaks Exclusive - Sri Lanka Breaking News & Political Updates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --primary-color: #ff5722;
+      --secondary-color: #8b0000;
+      --accent-color: #ff9800;
+      --text-dark: #1a237e;
+      --text-light: #424242;
+      --background-light: #f5f5f5;
+      --card-background: #ffffff;
+      --border-radius: 8px;
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --flag-yellow: #ffb300;
+      --flag-green: #008000;
+      --flag-orange: #ff5722;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Sinhala', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--background-light);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* Sri Lanka Flag Header */
+    .sri-lanka-header {
+      background: linear-gradient(90deg, 
+        var(--flag-yellow) 0%, 
+        var(--flag-orange) 25%, 
+        var(--flag-green) 50%, 
+        var(--flag-orange) 75%, 
+        var(--flag-yellow) 100%);
+      color: white;
+      padding: 12px 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 15px;
+    }
+
+    .main-header {
       text-align: center;
+      margin: 25px 0 35px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary-color);
     }
 
-    .blinking-text {
-      animation: blink 1s infinite;
-      color: #007bff;
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 20px;
+    .main-header h1 {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+      font-size: 2.2rem;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+      line-height: 1.3;
     }
 
-    .video-preview img {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .play-button {
-      margin-top: 20px;
+    .breaking-badge {
       display: inline-block;
-      background-color: #28a745;
+      background: var(--secondary-color);
       color: white;
-      font-size: 22px;
-      font-weight: bold;
-      padding: 14px 30px;
-      border-radius: 10px;
-      text-decoration: none;
-      animation: blink 1s infinite;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      animation: blink 1.5s infinite;
     }
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+      50% { opacity: 0.7; }
     }
 
-    .story-box {
-      background-color: #e6f0ff;
-      border: 2px solid #007bff;
-      border-radius: 10px;
-      color: #003366;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.6;
+    .live-now {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 15px 25px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      margin: 25px auto;
+      max-width: 500px;
+      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+    }
+
+    .live-dot {
+      width: 12px;
+      height: 12px;
+      background: #ff0000;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+    }
+
+    .video-section {
+      background: var(--card-background);
+      border-radius: var(--border-radius);
       padding: 25px;
-      margin-top: 40px;
-      text-align: justify;
+      margin: 30px 0;
+      box-shadow: var(--box-shadow);
+      border: 2px solid var(--primary-color);
     }
 
-    .story-box h2 {
-      color: #007bff;
-      text-align: center;
+    .video-title {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+      font-size: 1.8rem;
+      color: var(--secondary-color);
       margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.4;
     }
 
-    @media (max-width: 600px) {
-      .blinking-text {
-        font-size: 24px;
+    .video-preview {
+      position: relative;
+      margin-bottom: 25px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      cursor: pointer;
+      background: #000;
+    }
+
+    .video-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .video-preview:hover img {
+      transform: scale(1.03);
+    }
+
+    .play-button-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 16px 35px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 25px auto;
+      width: fit-content;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(139, 0, 0, 0.4);
+    }
+
+    .play-button-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(139, 0, 0, 0.5);
+    }
+
+    /* News Grid */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .news-card {
+      background: var(--card-background);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--box-shadow);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .news-category {
+      display: inline-block;
+      background: var(--accent-color);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .news-title {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .news-excerpt {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Trending Section */
+    .trending-section {
+      background: linear-gradient(135deg, #fff8e1, #ffecb3);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      margin: 40px 0;
+      border: 2px dashed var(--accent-color);
+    }
+
+    .trending-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .trending-header h2 {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+    }
+
+    .trending-list {
+      list-style: none;
+    }
+
+    .trending-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #ffd54f;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .trending-number {
+      background: var(--primary-color);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Social Proof */
+    .social-proof {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 30px 0;
+      padding: 20px;
+      background: var(--card-background);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--secondary-color);
+      color: white;
+      padding: 30px 20px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #ffccbc;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: #bdbdbd;
+      margin-top: 20px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
       }
-      .play-button {
-        font-size: 18px;
-        padding: 10px 20px;
+      
+      .main-header h1 {
+        font-size: 1.8rem;
+        padding: 0 10px;
       }
+      
+      .video-section {
+        padding: 15px;
+        margin: 20px 0;
+      }
+      
+      .video-title {
+        font-size: 1.5rem;
+      }
+      
+      .news-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .play-button-main {
+        padding: 14px 25px;
+        font-size: 1rem;
+        width: 90%;
+        text-align: center;
+      }
+      
+      .live-now {
+        margin: 15px;
+        padding: 12px 20px;
+      }
+      
+      .social-proof {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .sri-lanka-header {
+        font-size: 1rem;
+        padding: 10px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .video-title {
+        font-size: 1.3rem;
+      }
+      
+      .trending-header h2 {
+        font-size: 1.5rem;
+      }
+      
+      .news-card {
+        padding: 15px;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* Sri Lanka Specific Styling */
+    .sinhala-text {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+    }
+    
+    .location-badge {
+      display: inline-block;
+      background: #4caf50;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin: 5px;
     }
   </style>
 </head>
 <body>
+  <!-- Sri Lanka National Header -->
+  <div class="sri-lanka-header sinhala-text">
+    🇱🇰 ශ්‍රී ලංකා බ්‍රේකිං නිව්ස් | Sri Lanka Breaking News 🇱🇰
+  </div>
 
   <div class="container">
-    <div class="blinking-text">🎬 Watch the video below</div>
+    <header class="main-header">
+      <div class="breaking-badge">🔴 අත්තික්කා Breaking</div>
+      <h1 class="sinhala-text">රහස්‍ය වීඩියෝ එකතුව | ප්‍රවෘත්ති අනාවරණය වෙයි!</h1>
+      <p>Colombo, Kandy, Galle සිට සෑම ප්‍රදේශයකම උණුසුම් පුවත්</p>
+    </header>
 
-    <div class="video-preview">
-      <a href="https://google.com/" target="_blank" rel="nofollow">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQyYKn4aPSzmyGYP_HnX0mMsxWLVcaiFYIyajgCI4lXGrWE6JYNn9grp9nPVM_ST_Pig47tNxRJ05EKMEuJ30So8kyCcsT82S_phU3xlQWM4SBGx1dH2oRdjry0yoQYTSp_ceNdt5fBNV1nL88veJBJ4szxD6RxdrG8kOFZodE0vXMUVKrNr18CUtcOLQ5/w945-h600-p-k-no-nu/pixnova-raw_5aad8845fdec265dcbd9350358c706c7.jpg" alt="Video Preview"/>
-      </a>
+    <!-- Live Now Indicator -->
+    <div class="live-now">
+      <div class="live-dot"></div>
+      <span class="sinhala-text">🔴 සජීවී යාවත්කාලීන කිරීම්</span>
+      <span>• Updated: Just Now</span>
     </div>
 
-    <a href="https://ey43.com/4/9840926" class="play-button" target="_blank" rel="nofollow">
-      ▶️ Play Video
-    </a>
+    <!-- Main Video Section -->
+    <section class="video-section">
+      <h2 class="video-title sinhala-text">📽️ රහස්‍යව රූපගත කරන ලද වීඩියෝව</h2>
+      
+      <div class="video-preview">
+        <a href="https://google.com/" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQyYKn4aPSzmyGYP_HnX0mMsxWLVcaiFYIyajgCI4lXGrWE6JYNn9grp9nPVM_ST_Pig47tNxRJ05EKMEuJ30So8kyCcsT82S_phU3xlQWM4SBGx1dH2oRdjry0yoQYTSp_ceNdt5fBNV1nL88veJBJ4szxD6RxdrG8kOFZodE0vXMUVKrNr18CUtcOLQ5/w945-h600-p-k-no-nu/pixnova-raw_5aad8845fdec265dcbd9350358c706c7.jpg" 
+            alt="Sri Lanka Political Meeting Secret Video Leak - Colombo News"
+            loading="lazy"
+          />
+        </a>
+      </div>
 
-    <!-- New Story Section -->
-    <div class="story-box">
-      <h2>The Power of Innovation in Healthcare</h2>
+      <a href="https://ey43.com/4/9840926" class="play-button-main" target="_blank" rel="noopener noreferrer">
+        <span>▶️</span>
+        <span class="sinhala-text">දැන්ම නරඹන්න | Watch Now</span>
+      </a>
+      
+      <p style="text-align: center; color: var(--text-light); margin-top: 15px; font-size: 0.9rem;">
+        ⚠️ මෙම වීඩියෝව ඉක්මනින් ඉවත් කරනු ඇත | This video will be removed soon
+      </p>
+    </section>
 
-      <p>In today’s rapidly advancing world, innovation has become a driving force behind modern healthcare. Many life-saving treatments and technologies exist because of individuals who dared to think differently. One such individual was Dr. Alex, a dedicated researcher who believed that science and technology together could transform human health.</p>
+    <!-- Breaking News Grid -->
+    <div class="news-grid">
+      <div class="news-card">
+        <span class="news-category">🏛️ දේශපාලනය</span>
+        <h3 class="news-title sinhala-text">කොළඹ සමුළුවේ රහස්‍ය සාකච්ඡා වීඩියෝව අනාවරණය</h3>
+        <p class="news-excerpt">ප්‍රධාන දේශපාලන පක්ෂවල නායකයන් අතර රහස්‍ය සාකච්ඡාවක් වීඩියෝ ගත කර ඇති අතර එය මාධ්‍ය වෙත ගලා ඇත...</p>
+        <div style="margin-top: 10px;">
+          <span class="location-badge">කොළඹ</span>
+          <span style="font-size: 0.8rem; color: #666;">2 hours ago</span>
+        </div>
+      </div>
 
-      <p>Dr. Alex focused on creating smarter diagnostic systems that could identify diseases at an early stage. By using advanced data analysis and modern medical tools, the research team was able to help doctors make faster and more accurate decisions, leading to better patient care and improved survival rates.</p>
+      <div class="news-card">
+        <span class="news-category">💃 සමාජ මාධ්‍ය</span>
+        <h3 class="news-title sinhala-text">ප්‍රසිද්ධ නිලිගේ රහස්‍ය රූගත කිරීම් පිටවීම</h3>
+        <p class="news-excerpt">සිනමා තරුවකගේ පෞද්ගලික වීඩියෝ මාලාවක් සමාජ මාධ්‍යවල පතිත වී ඇති අතර පොලිස් පරීක්ෂණයක් ආරම්භ කර ඇත...</p>
+        <div style="margin-top: 10px;">
+          <span class="location-badge">කෑගල්ල</span>
+          <span style="font-size: 0.8rem; color: #666;">5 hours ago</span>
+        </div>
+      </div>
 
-      <p>The journey was filled with challenges, failed experiments, and long hours of hard work. Despite these obstacles, determination and patience led to a major breakthrough that made healthcare more accessible and affordable for many communities around the world.</p>
+      <div class="news-card">
+        <span class="news-category">💰 ආර්ථිකය</span>
+        <h3 class="news-title sinhala-text">විදේශ විනිමය ගබඩාව පිළිබඳ නව තොරතුරු අනාවරණය</h3>
+        <p class="news-excerpt">මහ බැංකුව තුළ රහස්‍ය ලේඛන මගින් ආර්ථික තත්ත්වය පිළිබඳ නව කරුණු හෙළි වී ඇත...</p>
+        <div style="margin-top: 10px;">
+          <span class="location-badge">කොළඹ 01</span>
+          <span style="font-size: 0.8rem; color: #666;">1 day ago</span>
+        </div>
+      </div>
+    </div>
 
-      <p>This story reminds us that progress is built on persistence, creativity, and a genuine desire to help others. Behind every medical advancement lies a commitment to improving lives, proving that innovation is essential for a healthier and brighter future.</p>
+    <!-- Trending Now Section -->
+    <section class="trending-section">
+      <div class="trending-header">
+        <h2 class="sinhala-text">🔥 දැන් ට්‍රෙන්ඩින් වෙනවා</h2>
+        <span style="color: var(--primary-color);">●</span>
+      </div>
+      
+      <ul class="trending-list">
+        <li class="trending-item">
+          <div class="trending-number">1</div>
+          <span class="sinhala-text">කැබිනට් අමාත්‍යවරුන්ගේ රහස්‍ය හමුව</span>
+        </li>
+        <li class="trending-item">
+          <div class="trending-number">2</div>
+          <span class="sinhala-text">තරු යුවළකගේ රහස්‍ය විවාහය</span>
+        </li>
+        <li class="trending-item">
+          <div class="trending-number">3</div>
+          <span class="sinhala-text">පාර්ලිමේන්තුව තුළ ඇති වූ ආරවුල</span>
+        </li>
+        <li class="trending-item">
+          <div class="trending-number">4</div>
+          <span class="sinhala-text">ව්‍යාපාරිකයකුගේ රහස්‍ය ගබඩාව</span>
+        </li>
+        <li class="trending-item">
+          <div class="trending-number">5</div>
+          <span class="sinhala-text">පොලිස් නිලධාරියකුගේ වීඩියෝ ප්‍රචාරය</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Social Proof -->
+    <div class="social-proof">
+      <div class="stat-item">
+        <div class="stat-number">250K+</div>
+        <div class="stat-label sinhala-text">දිනපතා පාඨකයින්</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">7,500+</div>
+        <div class="stat-label sinhala-text">රහස්‍ය පුවත්</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label sinhala-text">යාවත්කාලීන කිරීම්</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">25+</div>
+        <div class="stat-label sinhala-text">දිස්ත්‍රික්ක</div>
+      </div>
+    </div>
+
+    <!-- Additional Sri Lankan Content -->
+    <div class="news-card" style="margin: 30px 0;">
+      <span class="news-category">🔍 විශේෂ වාර්තාව</span>
+      <h3 class="news-title sinhala-text">ශ්‍රී ලංකාවේ විශාලතම මාධ්‍ය අනාවරණය 2024</h3>
+      <p class="news-excerpt sinhala-text" style="margin: 15px 0;">
+        අපගේ විශේෂ වාර්තා කණ්ඩායම විසින් සොයාගත් රහස්‍ය වීඩියෝ, ඇඩියෝ සහ ලේඛන මාලාවක් මෙම විශේෂ වාර්තාව තුළින් හෙළි කරනු ලැබේ. කොළඹ උස්වින් ගිම්හාන මන්දිරයේ සිට යාපනය දක්වා, මෙරට බලගුණයේ රහස් කතා මෙතෙක් කිසිදු මාධ්‍යයකින් නොපළ කළ ආකාරයට අප විසින් ගෙනහැර දක්වනු ලැබේ.
+      </p>
+      <p class="news-excerpt">
+        මෙම විශේෂ වාර්තාවට ප්‍රවේශය ලබාගැනීම සඳහා ඉහත දක්වා ඇති "දැන්ම නරඹන්න" බොත්තම ක්ලික් කරන්න. මෙම අන්තර්ගතය ඉක්මනින් ඉවත් කරනු ඇති බව සලකන්න.
+      </p>
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h3 class="sinhala-text" style="margin-bottom: 20px;">🇱🇰 ශ්‍රී ලංකා බ්‍රේකිං නිව්ස්</h3>
+      
+      <div class="footer-links">
+        <a href="#" class="sinhala-text">පුවත්</a>
+        <a href="#" class="sinhala-text">රහස්‍ය වාර්තා</a>
+        <a href="#" class="sinhala-text">දේශපාලනය</a>
+        <a href="#" class="sinhala-text">සමාජ මාධ්‍ය</a>
+        <a href="#" class="sinhala-text">සම්බන්ධ වන්න</a>
+      </div>
+      
+      <p class="copyright sinhala-text">
+        © 2024 Lanka Leaks Exclusive. සියලුම හිමිකම් ඇවිරිණි. මෙම අන්තර්ගතය අධ්‍යාපනික/තොරතුරු අරමුණු සඳහා පමණි.
+      </p>
+      <p class="copyright">
+        Disclaimer: This is an independent news portal. All content is for informational purposes only.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Redirect Script -->
   <script>
+    // Enhanced redirect with Sri Lankan context
     setTimeout(function() {
-      window.location.href = "https://google.com/";
-    }, 3000); // Redirect after 3 seconds
+      // Create Sri Lankan style notification
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 70px;
+        right: 15px;
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        z-index: 9999;
+        font-family: 'Noto Sans Sinhala', sans-serif;
+        font-weight: 600;
+        max-width: 300px;
+        border-right: 5px solid var(--flag-yellow);
+        animation: slideInRight 0.5s ease;
+      `;
+      
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideInRight {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutRight {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-size: 1.5rem;">🇱🇰</div>
+          <div>
+            <div style="font-size: 0.9rem;">විශේෂ වාර්තාවට මාරු වෙමින්...</div>
+            <div style="font-size: 0.8rem; opacity: 0.9;">Loading exclusive content</div>
+          </div>
+        </div>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      // Remove notification and redirect
+      setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.5s ease';
+        setTimeout(() => {
+          notification.remove();
+          window.location.href = "https://google.com/";
+        }, 500);
+      }, 2000);
+      
+    }, 3000);
   </script>
-
 </body>
-  </html>
-
+</html>
