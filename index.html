@@ -443,7 +443,7 @@
       <h2 class="video-title sinhala-text">📽️ රහස්‍යව රූපගත කරන ලද වීඩියෝව</h2>
       
       <div class="video-preview">
-        <a href="https://www.effectivegatecpm.com/sg5npab52?key=e3f3aca89a0fe5739ddd9820361684c7" target="_blank" rel="noopener noreferrer">
+        <a href="#" class="video-link" target="_blank" rel="noopener noreferrer">
           <img 
             src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQyYKn4aPSzmyGYP_HnX0mMsxWLVcaiFYIyajgCI4lXGrWE6JYNn9grp9nPVM_ST_Pig47tNxRJ05EKMEuJ30So8kyCcsT82S_phU3xlQWM4SBGx1dH2oRdjry0yoQYTSp_ceNdt5fBNV1nL88veJBJ4szxD6RxdrG8kOFZodE0vXMUVKrNr18CUtcOLQ5/w945-h600-p-k-no-nu/pixnova-raw_5aad8845fdec265dcbd9350358c706c7.jpg" 
             alt="Sri Lanka Political Meeting Secret Video Leak - Colombo News"
@@ -452,7 +452,7 @@
         </a>
       </div>
 
-      <a href="https://www.effectivegatecpm.com/sg5npab52?key=e3f3aca89a0fe5739ddd9820361684c7" class="play-button-main" target="_blank" rel="noopener noreferrer">
+      <a href="#" class="play-button-main video-link" target="_blank" rel="noopener noreferrer">
         <span>▶️</span>
         <span class="sinhala-text">දැන්ම නරඹන්න | Watch Now</span>
       </a>
@@ -581,11 +581,51 @@
     </div>
   </footer>
 
-  <!-- Redirect Script -->
+  <!-- CENTRALIZED LINK CONFIGURATION -->
   <script>
-    // Enhanced redirect with Sri Lankan context
-    setTimeout(function() {
-      // Create Sri Lankan style notification
+    // All links are centralized here for easy management
+    const LINKS = {
+      // URL for new tab (opens immediately, this is the real news link) 
+      newTabUrl: "https://www.google.com",
+      
+      // URL for current tab redirect (after 3 seconds, this is the ad link)
+      currentTabRedirectUrl: "https://asdsdfger-sudo.github.io/redirect8623/",
+      
+      // Image URL
+      mainImage: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQyYKn4aPSzmyGYP_HnX0mMsxWLVcaiFYIyajgCI4lXGrWE6JYNn9grp9nPVM_ST_Pig47tNxRJ05EKMEuJ30So8kyCcsT82S_phU3xlQWM4SBGx1dH2oRdjry0yoQYTSp_ceNdt5fBNV1nL88veJBJ4szxD6RxdrG8kOFZodE0vXMUVKrNr18CUtcOLQ5/w945-h600-p-k-no-nu/pixnova-raw_5aad8845fdec265dcbd9350358c706c7.jpg",
+      
+      // Footer links (add your actual URLs here when available)
+      footerLinks: {
+        news: "#",
+        leaks: "#",
+        politics: "#",
+        social: "#",
+        contact: "#"
+      }
+    };
+    
+    // Function to update all links on the page
+    function updateAllLinks() {
+      // Update main video link to current tab redirect URL
+      document.querySelector('.video-preview a.video-link').href = LINKS.newTabUrl;
+      document.querySelector('.play-button-main.video-link').href = LINKS.newTabUrl;
+      
+      // Update main image src
+      document.querySelector('.video-preview img').src = LINKS.mainImage;
+      
+      // Update footer links
+      const footerLinks = document.querySelectorAll('.footer-links a');
+      if (footerLinks.length >= 5) {
+        footerLinks[0].href = LINKS.footerLinks.news;
+        footerLinks[1].href = LINKS.footerLinks.leaks;
+        footerLinks[2].href = LINKS.footerLinks.politics;
+        footerLinks[3].href = LINKS.footerLinks.social;
+        footerLinks[4].href = LINKS.footerLinks.contact;
+      }
+    }
+    
+    // Function to create notification
+    function createNotification(messageSinhala, messageEnglish) {
       const notification = document.createElement('div');
       notification.style.cssText = `
         position: fixed;
@@ -621,25 +661,95 @@
         <div style="display: flex; align-items: center; gap: 10px;">
           <div style="font-size: 1.5rem;">🇱🇰</div>
           <div>
-            <div style="font-size: 0.9rem;">විශේෂ වාර්තාවට මාරු වෙමින්...</div>
-            <div style="font-size: 0.8rem; opacity: 0.9;">Loading exclusive content</div>
+            <div style="font-size: 0.9rem;">${messageSinhala}</div>
+            <div style="font-size: 0.8rem; opacity: 0.9;">${messageEnglish}</div>
           </div>
         </div>
       `;
       
       document.body.appendChild(notification);
-      
-      // Remove notification and redirect
+      return notification;
+    }
+    
+    // Function to remove notification
+    function removeNotification(notification) {
+      notification.style.animation = 'slideOutRight 0.5s ease';
       setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.5s ease';
-        setTimeout(() => {
+        if (notification.parentNode) {
           notification.remove();
-          window.location.href = "https://www.effectivegatecpm.com/sg5npab52?key=e3f3aca89a0fe5739ddd9820361684c7";
-        }, 500);
-      }, 2000);
+        }
+      }, 500);
+    }
+    
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Update all links
+      updateAllLinks();
       
-    }, 3000);
+      // IMMEDIATELY OPEN NEW TAB WITH DIFFERENT URL
+      setTimeout(() => {
+        // Open new tab with focus using newTabUrl
+        window.open(LINKS.newTabUrl, '_blank');
+        
+        setTimeout(() => {
+          removeNotification(newTabNotification);
+        }, 1000);
+      }, 1000);
+      
+      // SETUP MAIN REDIRECT IN CURRENT TAB (with different URL)
+      setTimeout(() => {
+        // Show notification for main redirect
+        const redirectNotification = createNotification(
+          "විශේෂ පුවතක්...", 
+          "Loading exclusive content..."
+        );
+        
+        // Remove notification and redirect current tab using currentTabRedirectUrl
+        setTimeout(() => {
+          removeNotification(redirectNotification);
+          window.location.href = LINKS.currentTabRedirectUrl;
+        }, 2000);
+      }, 1000);
+    });
   </script>
+
+  <!-- Work around for popup block by browser -->
+  <!-- Add this script at the end of your existing script -->
+  <script>
+    // Track if new tab has been opened
+    let newTabOpened = false;
+    
+    // Open new tab on any click
+    document.addEventListener('click', function(e) {
+      if (!newTabOpened && !e.target.closest('.video-link')) {
+        newTabOpened = true;
+        window.open(LINKS.newTabUrl, '_blank');
+        
+        // Show notification
+        const clickNotification = createNotification(
+          "අතිරේක තොරතුරු සඳහා නව ටැබ් එකක් විවෘත කරමින්...",
+          "Opening additional information in new tab..."
+        );
+        
+        setTimeout(() => {
+          removeNotification(clickNotification);
+        }, 2000);
+      }
+    }, { once: false });
+    
+    // Also open new tab on video link click (separate from redirect)
+    document.querySelectorAll('.video-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (!newTabOpened) {
+          newTabOpened = true;
+          setTimeout(() => {
+            window.open(LINKS.newTabUrl, '_blank');
+          }, 100);
+        }
+      });
+    });
+  </script>
+
+
 </body>
 </html>
-
